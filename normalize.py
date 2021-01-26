@@ -73,7 +73,7 @@ def parse_message(desc, indent_level):
     indent = ' ' * (_INDENT * indent_level)
     print(f'''{indent}message {tname} ''''{')
 
-    # メッセージ定義内のフィールドを名前の ASCII 順で表示．
+    # メッセージ定義内のフィールドを number 順で表示．
     fdescs = [fdesc for fdesc in desc.fields]
     fdescs.sort(key=lambda fdesc: fdesc.index)
     indent = ' ' * (_INDENT * (indent_level + 1))
@@ -96,8 +96,8 @@ def parse_message(desc, indent_level):
             ftname = _SCALAR_VALUE_TYPE_NAME_MAP[fdesc.type]
 
         fname = fdesc.name
-        fidx = fdesc.index + 1
-        print(f'''{indent}{flabel}{ftname} {fname} = {fidx};''')
+        fnum = fdesc.number
+        print(f'''{indent}{flabel}{ftname} {fname} = {fnum};''')
 
     # メッセージ定義内の message 定義を名前の ASCII 順で表示．
     tdescs = [tdesc for tdesc in desc.nested_types]
