@@ -96,7 +96,7 @@ def parse_message(desc, indent_level):
             ftname = _SCALAR_VALUE_TYPE_NAME_MAP[fdesc.type]
 
         fname = fdesc.name
-        fidx = fdesc.index
+        fidx = fdesc.index + 1
         print(f'''{indent}{flabel}{ftname} {fname} = {fidx};''')
 
     # メッセージ定義内の message 定義を名前の ASCII 順で表示．
